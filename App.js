@@ -101,16 +101,16 @@ const BottomTabNavigator = createBottomTabNavigator (
 
   },
 
-  Profile: {
-    screen: Profile,
-    navigationOptions: {
-      tabBarLabel: 'PERFIL',
-      tabBarIcon:  ({ tintColor }) => (
-        <Icon name='md-person' color=
-        {tintColor} size={24}/>
-      )
-    }
-  }
+  // Profile: {
+  //   screen: Profile,
+  //   navigationOptions: {
+  //     tabBarLabel: 'PERFIL',
+  //     tabBarIcon:  ({ tintColor }) => (
+  //       <Icon name='md-person' color=
+  //       {tintColor} size={24}/>
+  //     )
+  //   }
+  // }
 
   },{
     tabBarOptions: {

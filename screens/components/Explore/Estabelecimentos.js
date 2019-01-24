@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, Item } from 'native-base';
+import { Container, Content, List, ListItem, Badge, Thumbnail, Text, Left, Body, Right, Button, Item } from 'native-base';
 import Detail from '../../Detail'
-import {Linking} from 'react-native'
+import {Linking, RefreshControl, ScrollView} from 'react-native'
 import { withNavigation } from 'react-navigation';
 import Inbox from '../../Inbox';
 import api from '../services/api'
@@ -11,10 +11,12 @@ class Estabelecimentos extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      estabelecimentos: []
+      estabelecimentos: [],
     }
   }
    
+  
+  
   componentDidMount() {
       axios
           .get('https://hellobotapi.glitch.me/ECs')
@@ -25,13 +27,21 @@ class Estabelecimentos extends Component {
             })
           })
   }
+  
  
   renderList() {
     const textElements = this.state.estabelecimentos.map(estab =>{
       const {nomeEC} = estab
       const {idEC} = estab
       const {logoEC} = estab
-      return <ListItem key = {idEC} onPress={() => this.props.navigation.navigate('Detail', {estab}) } thumbnail>
+
+      
+      return <ScrollView key={idEC} refreshControl = {
+        <RefreshControl>
+        refreshing={this.state.refreshing}
+        onRefresh={this._onRefresh}
+        </RefreshControl>
+      }><ListItem key = {idEC} onPress={() => this.props.navigation.navigate('Detail', {estab}) } thumbnail>
           <Left>
             <Thumbnail square source={{ uri:logoEC}} />
           </Left>
@@ -40,29 +50,44 @@ class Estabelecimentos extends Component {
             <Text note numberOfLines={1}>Its time to build a difference . .</Text>
           </Body>
           <Right>
-            <Button transparent onPress={() => Linking.openURL('facebook.com/iuriferreira')} thumbnail >
-              <Text>View</Text>
-            </Button>
+            
+              <Badge style={{backgroundColor:'purple'}}>
+              <Text >{estab.cashbackEC}%</Text>
+              </Badge>
+            
           </Right>
         </ListItem>
+        </ScrollView>
+      
 
 
     })
 
+    _onRefresh = () => {
+      this.setState({refreshing: true});
+      renderList.then(() => {
+        this.setState({refreshing: false});
+      });
+    }
+    
+
     return textElements
   }
+
+  
  
   render() { 
   
 
-
     return (
-          <List style={{marginTop: 10}}>
+        <List style={{marginTop: 10}}>
           
           {this.renderList()}
 
-          </List>
-          
+          </List >
+
+
+      
     );
   }
 }

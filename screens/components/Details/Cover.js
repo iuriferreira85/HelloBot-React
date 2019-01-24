@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Image, ImageBackground, Text, View, StyleSheet,} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 import {Left, Thumbnail, Body, List, ListItem} from 'native-base'
+import Estabelecimentos from '../Explore/Estabelecimentos';
 
 export default class Cover extends Component {
   render() {
+    
     return (
       <View>
         
@@ -15,7 +17,7 @@ export default class Cover extends Component {
               <Thumbnail square source={{ uri:'https://upload.wikimedia.org/wikipedia/pt/thumb/c/cf/Logotipo_do_Burger_King.svg/1024px-Logotipo_do_Burger_King.svg.png'}} />
             </Left>
             <Body>
-              <Text style={{fontSize:20, backgroundColor:'white' }}>Burger King</Text>
+              <Text style={{fontSize:20, backgroundColor:'white' }}>{estab.nomeEC}</Text>
               <Text note numberOfLines={1}>Lanches</Text>
             </Body>
            

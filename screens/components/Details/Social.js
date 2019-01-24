@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Social extends Component {
@@ -11,19 +11,19 @@ export default class Social extends Component {
             
 
             <View style={stDetails.boxDetailSocial}>
-            <Icon name='logo-facebook' size={40}></Icon>
+            <Icon onPress={() => Linking.openURL('fb://hellobotbr')} name='logo-facebook' size={40}></Icon>
             </View>
 
             <View style={stDetails.boxDetailSocial}>
-            <Icon name='logo-instagram' size={40}></Icon>
+            <Icon onPress={() => Linking.openURL('instagram://user?username=hellobotbr')} name='logo-instagram' size={40}></Icon>
             </View>
 
             <View style={stDetails.boxDetailSocial}>
-            <Icon name='logo-twitter' size={40}></Icon>
+            <Icon onPress={() => Linking.openURL('twitter://timeline')} name='logo-twitter' size={40}></Icon>
             </View>
 
             <View style={stDetails.boxDetailSocial}>
-            <Icon name='logo-google' size={40}></Icon>
+            <Icon onPress={() => Linking.openURL('https://www.ifood.com.br/delivery/ribeirao-preto-sp/montana-grill-ribeirao-shopping-jardim-california')} name='logo-google' size={40}></Icon>
             </View>
 
 

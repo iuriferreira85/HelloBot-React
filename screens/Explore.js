@@ -7,7 +7,7 @@ import {StyleSheet,
         Platform, 
         StatusBar,
         ScrollView,
-        Image,} from 'react-native'
+        Image, RefreshControl} from 'react-native'
  
 import Icon from 'react-native-vector-icons/Ionicons'
 import Category from './components/Explore/Category'
@@ -18,44 +18,58 @@ class Explore extends React.Component {
 
     constructor(props) {
         super(props)
-        
-      }
+        this.state = {
+          refreshing: false,
+        }   
+    }
 
+    
+      
     componentWillMount() {
         this.startHeaderHeight = 80
         if(Platform.OS== 'android') {
             this.startHeaderHeight = 60 + StatusBar.currentHeight
         }
-    }  
+    }
+    
+    
+
+
   render() {
+    
     return (
       <SafeAreaView style={{flex:1}}>
             <View style ={{flex:1}}>
 
-                <View style = {{height:this.startHeaderHeight, backgroundColor:'white',
+                <View style = {{height:this.startHeaderHeight, backgroundColor:'purple',
                 borderBottomWidth:1, borderBottomColor:'#dddddd'}}>
-                    <View style={{
+                    <View style={{ flex:1, display:'flex',alignItems:'center', alignContent:'center', alignSelf:'center', justifyContent:'center', 
                         flexDirection: 'row', padding:10,
-                        backgroundColor: 'white', marginHorizontal:10,
+                        backgroundColor: 'purple', marginHorizontal:10,
                         marginTop: Platform.OS == 'android' ? 10 : null,
                         shadowOffset: {width:0, height:0},
-                        shadowColor: 'black',
-                        shadowOpacity: 0.2,
-                        elevation:1,
+                        //shadowColor: 'black',
+                        //shadowOpacity: 0.2,
+                        //elevation:1,
                         
                     }}>
 
-                        <Icon name='md-search' size={20} style={{marginRight:10, alignSelf:'center' }} />
+                        
+                        <Text style={{flex:1, display:'flex',alignItems:'center', alignContent:'center', alignSelf:'center', justifyContent:'center', }}>Saldo: 83,00</Text>
+                        
+                        
+                        
+                        {/* <Icon name='md-search' size={20} style={{marginRight:10, alignSelf:'center' }} />
                         <TextInput
                             underlineColorAndroid='transparent'
                             placeholder='Pesquisar' 
                             placeholderTextColor='#d6d6d6'
                             style={{flex:1, fontWeight:'700', backgroundColor:'white'}}
-                        />
+                        /> */}
 
                     </View>
                 </View> 
-                <ScrollView scrollEventThrottle={16}>
+                <ScrollView scrollEventThrottle={16} >
 
                 <View style={{flex:1, backgroundColor:'white', paddingTop:20,}}>
                     {/* <Text style= {{fontSize:24, fontFamily: 'Verdana', fontWeight:'700', paddingHorizontal:20}}>
@@ -99,8 +113,8 @@ class Explore extends React.Component {
                 
                 </View>
 
-                    <View>
-                        <Estabelecimentos></Estabelecimentos>
+                    <View >
+                        <Estabelecimentos ></Estabelecimentos>
                     </View>
                  
                 </ScrollView>
