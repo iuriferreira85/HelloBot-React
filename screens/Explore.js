@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Category from './components/Explore/Category'
 import HotPromo from './components/Explore/HotPromo'
 import Estabelecimentos from './components/Explore/Estabelecimentos'
+import LinearGradient from 'react-native-linear-gradient'
 
 class Explore extends React.Component {
 
@@ -38,14 +39,17 @@ class Explore extends React.Component {
   render() {
     
     return (
+        
       <SafeAreaView style={{flex:1}}>
+      
             <View style ={{flex:1}}>
+            <LinearGradient colors={['#26d6e2','#26d6e2']}>
 
-                <View style = {{height:this.startHeaderHeight, backgroundColor:'purple',
+                <View style = {{height:this.startHeaderHeight, 
                 borderBottomWidth:1, borderBottomColor:'#dddddd'}}>
                     <View style={{ flex:1, display:'flex',alignItems:'center', alignContent:'center', alignSelf:'center', justifyContent:'center', 
                         flexDirection: 'row', padding:10,
-                        backgroundColor: 'purple', marginHorizontal:10,
+                        marginHorizontal:10,
                         marginTop: Platform.OS == 'android' ? 10 : null,
                         shadowOffset: {width:0, height:0},
                         //shadowColor: 'black',
@@ -69,6 +73,7 @@ class Explore extends React.Component {
 
                     </View>
                 </View> 
+                </LinearGradient>
                 <ScrollView scrollEventThrottle={16} >
 
                 <View style={{flex:1, backgroundColor:'white', paddingTop:20,}}>
@@ -107,7 +112,7 @@ class Explore extends React.Component {
 
                     </View> */}
                     
-                    <Text style= {{fontSize:18, fontWeight:'700', paddingHorizontal:20}}>
+                    <Text style= {{color:'purple',fontSize:18, fontWeight:'700', paddingHorizontal:20}}>
                     Estabelecimentos
                     </Text>
                 

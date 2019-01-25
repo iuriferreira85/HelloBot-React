@@ -68,7 +68,7 @@ export default class Detail extends Component {
             </View>
 
             <View style={stDetails.boxDetailSocial}>
-            <Icon onPress={() => Linking.openURL(estab.ifoodEC)} name='logo-google' size={40}></Icon>
+            <Icon onPress={() => Linking.openURL('fb-messenger://m.me/'+estab.ifoodEC)} name='md-chatbubbles' size={40}></Icon>
             </View>
 
 

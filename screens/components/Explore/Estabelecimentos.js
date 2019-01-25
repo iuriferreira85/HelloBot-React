@@ -41,7 +41,7 @@ class Estabelecimentos extends Component {
         refreshing={this.state.refreshing}
         onRefresh={this._onRefresh}
         </RefreshControl>
-      }><ListItem key = {idEC} onPress={() => this.props.navigation.navigate('Detail', {estab}) } thumbnail>
+      }><ListItem  key = {idEC} onPress={() => this.props.navigation.navigate('Detail', {estab}) } thumbnail>
           <Left>
             <Thumbnail square source={{ uri:logoEC}} />
           </Left>

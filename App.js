@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, LinearGradient, Button} from 'react-native';
 
 import {createBottomTabNavigator, 
   createSwitchNavigator, 
@@ -114,11 +114,12 @@ const BottomTabNavigator = createBottomTabNavigator (
 
   },{
     tabBarOptions: {
-      activeTintColor: '#42eef4',
-      inactiveTintColor: 'grey',
+      activeTintColor: '#26d6e2',
+      inactiveTintColor: '#afaeae',
       style: {
-        backgroundColor:'white',
-        borderTopWidth:0,
+        backgroundColor:'#f2f2f2',
+        borderTopWidth:0.2,
+        borderColor:'#e2e2e2',
         shadowOffset: {width:5, height:3},
         shadowColor: 'black',
         shadowOpacity: 0.5,
@@ -140,22 +141,39 @@ const BottomStackNavigator = createStackNavigator ({
 
 
 },
+
 {
   defaultNavigationOptions:({navigation})=> {
+    
     return{
+      headerStyle: {
+        backgroundColor:'#26d6e2',
+        shadowColor: 'null',
+        shadowOpacity: 0,
+        elevation: 0,
+        
+
+      },
+
       headerLeft: (
-        <Icon name='md-menu' size={30} style={{paddingLeft: 15}} onPress={()=> navigation.openDrawer()}/>
+        <Icon name='md-menu' color='white' size={30} style={{paddingLeft: 15}} onPress={()=> navigation.openDrawer()}/>
 
       ),
       headerTitle: (
-        <Text>HelloBot</Text>
-      )
+        <Text style={{color:'white', fontSize:20, fontWeight:'700', textAlign:'center'}}>HelloBot</Text>
+      ),
+      headerTitleStyle: {
+        textAlign: 'center',alignSelf:'center'
+      },
+      headerRight: (<View></View>)
+      
     }
   }
 })
 
 const AppDrawerNavigator = createDrawerNavigator({
   Explore: {screen: BottomStackNavigator},
+  
 
 })
 
